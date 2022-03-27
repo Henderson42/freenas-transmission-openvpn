@@ -21,10 +21,12 @@ wget https://www.privateinternetaccess.com/openvpn/openvpn.zip --no-check-certif
 mkdir PIA 
 unzip openvpn.zip -d PIA/ 
 cd PIA/ || exit 
-printf "\nUsing UK Southampton server!\n\n"
-cp UK\ Southampton.ovpn .. 
+echo 'Enter server file: '
+read -r serverfile
+printf "\nUsing $serverfile server!\n\n"
+cp $serverfile .. 
 cd .. 
-mv UK\ Southampton.ovpn openvpn.conf
+mv $serverfile openvpn.conf
 echo 'Enter username: '
 read -r username
 echo 'Enter password: '
